@@ -17,9 +17,14 @@ const TeacherProfile = () => {
         fetchData();
     }, []);
 
+
     const [context, setContext] = useContext(UserContext);
 
     const deleteEval = (id) => {
+        async function fetchData() {
+            const result = await apiHandler.getAllEvalsForTeacher();
+            setData(result);
+        }
         apiHandler.deleteEval(id).then(() => {
             fetchData();
         })
