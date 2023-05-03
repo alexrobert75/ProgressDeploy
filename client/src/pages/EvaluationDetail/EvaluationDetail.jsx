@@ -16,6 +16,7 @@ export const EvaluationDetail = () => {
     async function fetchEvaluationData() {
       console.log("call api");
       const result = await apiHandler.getOneEval(id);
+      console.log("LE RESULTAT DU FETCH ", result);
       setEvaluationData(result);
     }
     fetchEvaluationData();
