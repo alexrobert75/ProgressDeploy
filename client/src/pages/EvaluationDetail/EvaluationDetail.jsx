@@ -21,6 +21,8 @@ export const EvaluationDetail = () => {
     fetchEvaluationData();
   }, []);
 
+  console.log("DATA EVALUATIONSDETAIL ", evaluationdata);
+
   return (
     <>
       {evaluationdata && <Evaluation data={evaluationdata} />}

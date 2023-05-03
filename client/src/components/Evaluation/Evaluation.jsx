@@ -20,6 +20,8 @@ const Evaluation = (props) => {
 
   const [context, setContext] = useContext(UserContext);
 
+  console.log("EVALUATION EN PROPS ", props.data)
+
   const calculMoyenne = (item) => {
     return item.reduce((m, x) => {
       return m + (x.reponse * x.repartition) / 100;

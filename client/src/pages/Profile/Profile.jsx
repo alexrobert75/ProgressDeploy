@@ -35,6 +35,8 @@ export const Profile = () => {
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
+  console.log("DATA PROFILE ", data);
+
   return (
     <div>
       <h1>Mon profil</h1>
