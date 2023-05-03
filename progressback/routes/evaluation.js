@@ -96,8 +96,9 @@ router.get("/:id", requireAuth, checkId, (req, res, next) => {
       path: "userId answerList",
       populate: { path: "questionId" },
     })
-    .then((evaluation) => {
-      res.status(200).json(evaluation);
+    .then((evaluationFetch) => {
+      res.status(200).json(evaluationFetch);
+      console.log("EVAL FETCHEE ", evaluationFetch)
     })
     .catch(next);
 });
