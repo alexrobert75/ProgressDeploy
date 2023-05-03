@@ -5,10 +5,12 @@
     "node": "18.12.1"
   },
   "scripts": {
-    "frontend": "cd client && npm start",
-    "api": "cd progressback && nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run progressback\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "node progressback/server.js",
+    "backend": "cd progressback && npm run start",
+    "client": "cd client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "agenda": "^5.0.0",
