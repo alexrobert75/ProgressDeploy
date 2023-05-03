@@ -26,7 +26,8 @@ app.use(logger("dev")); // This logs HTTP reponses in the console.
 app.use(express.json()); // Access data sent as json @req.body
 app.use(express.urlencoded({ extended: false })); // Access data sent as application/x-www-form-urlencoded @req.body
 
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use(
   session({
@@ -55,6 +56,11 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/question", require("./routes/question"));
 app.use("/api/answer", require("./routes/answer"));
 app.use("/api/evaluation", require("./routes/evaluation"));
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
+});
 
 // 404 Middleware
 app.use((req, res, next) => {
@@ -85,17 +91,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-// Deployment code
-
-__dirname=path.resolve();
-
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
-});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
