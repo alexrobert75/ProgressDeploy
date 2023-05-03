@@ -9,12 +9,11 @@ const TeacherProfile = () => {
 
     const [data, setData] = useState(null);
 
-    const fetchData = async () => {
-        const result = await apiHandler.getAllEvalsForTeacher();
-        setData(result);
-    }
-
     useEffect(() => {
+        async function fetchData() {
+            const result = await apiHandler.getAllEvalsForTeacher();
+            setData(result);
+        }
         fetchData();
     }, []);
 
