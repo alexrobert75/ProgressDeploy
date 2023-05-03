@@ -5,9 +5,10 @@
     "node": "18.12.1"
   },
   "scripts": {
-    "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
-    "heroku-postbuild": "NODE_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "frontend": "cd client && npm start",
+    "api": "cd progressback && nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run progressback\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "agenda": "^5.0.0",

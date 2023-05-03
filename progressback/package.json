@@ -6,8 +6,7 @@
   },
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
-    "heroku-postbuild": "NODE_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "agenda": "^5.0.0",
