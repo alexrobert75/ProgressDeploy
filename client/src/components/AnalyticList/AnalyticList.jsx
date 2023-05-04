@@ -60,6 +60,7 @@ const AnalyticList = () => {
   return (
     <>
       <h1>Vue Analytique</h1>
+      <p>Sélectionnez une classe à afficher puis rechercher un élève si besoin.</p>
       <Search search={setSearchData} />
       {listeDesClasses && (
         <ClassesRadio

@@ -62,6 +62,7 @@ const EvaluationsList = ({ data, deleteEval }) => {
   return (
     <>
       <Modal open={open} type="delete" idDelete={idToDelete} close={setOpen} deleteEval={deleteEval}/>
+      <p>Tris disponibles en cliquant sur l'entête de colonne cible.</p>
       <Search search={setSearchData} />
       {listeDesClasses && <ClassesCheck classes={listeDesClasses} check={setClassesToDisplay} listClasses={classesToDisplay}/>}
       <Table celled sortable>
